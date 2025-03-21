@@ -1,6 +1,6 @@
 # esbuild null mapping reproduction
 
-This project is a minimal reproduction of an issue that causes esbuild to emit source maps with null mapping under some circumstances. The issue appears to have been introduced in esbuild v0.24.1 and is still present as of v0.25.1.
+This project is a minimal reproduction of an issue that causes esbuild to emit source maps with null mappings when bundling and using the external file loader. The issue appears to have been introduced in esbuild v0.24.1 and is still present as of v0.25.1.
 
 ### Install
 
@@ -35,7 +35,7 @@ Mapping {
 
 ### See the problem Safari
 
-Open `index.html` in Safari 18.3. Try to open the included source file `dummy.js`. It is not available because the null mappings cause Safari to fail to show any source files from the source map.
+Open `index.html` in Safari 18.3. Open dev tools, and try to navigate to `dummy.js` in the "Sources" panel. It is not available because the null mappings cause Safari to fail to show any source files from the source map.
 
 Chrome (135.0.7049.28) and Firefox (137.0b9) succeed in showing source files even in the presence of the null mappings.
 
@@ -55,3 +55,5 @@ This problem does not appear to occur if the file that uses the external file pl
 `scripts/list-null-mappings.js` uses the [source-map](https://github.com/mozilla/source-map) library to parse the generated source map and print null mappings. You can run it with `npm run list-null-mappings`.
 
 `scripts/list-mappings.js` lists all mappings (not just null ones). You can run this script with `npm run list-mappings`.
+
+A very similar issue was fixed in v0.25.1 ([changelog](https://github.com/evanw/esbuild/pull/4082), [PR](https://github.com/evanw/esbuild/pull/4082)), but the issue reported here was not fixed by that change.
