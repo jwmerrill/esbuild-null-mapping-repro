@@ -1,0 +1,21 @@
+{
+  "name": "esbuild-null-mapping-repro",
+  "version": "1.0.0",
+  "description": "Reproduction of esbuild generating null entries in source maps",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build":
+      "esbuild src/index.js --bundle --sourcemap --loader:.png=file --outdir=out",
+    "clean": "rm -rf out",
+    "list-mappings": "node scripts/list-mappings.js",
+    "list-null-mappings": "node scripts/list-null-mappings.js"
+  },
+  "author": "Jason Merrill",
+  "license": "ISC",
+  "dependencies": {
+    "esbuild": "^0.25.0",
+    "source-map": "^0.7.4"
+  }
+}
