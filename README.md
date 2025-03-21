@@ -56,4 +56,4 @@ This problem does not appear to occur if the file that uses the external file pl
 
 `scripts/list-mappings.js` lists all mappings (not just null ones). You can run this script with `npm run list-mappings`.
 
-A very similar issue was fixed in v0.25.1 ([changelog](https://github.com/evanw/esbuild/pull/4082), [PR](https://github.com/evanw/esbuild/pull/4082)), but the issue reported here was not fixed by that change.
+A very similar issue was fixed in v0.25.1 ([changelog](https://github.com/evanw/esbuild/blob/main/CHANGELOG.md#0251), [PR](https://github.com/evanw/esbuild/pull/4082)), but the issue reported here was not fixed by that change.
